@@ -48,8 +48,7 @@ extern BOOL LegacyPiP();
 
 BOOL TweakEnabled() {
     //return [[NSUserDefaults standardUserDefaults] boolForKey:EnabledKey];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"EnabledKey"]; 
-}
+    return YES;
 
 BOOL UsePiPButton() {
     return [[NSUserDefaults standardUserDefaults] boolForKey:PiPActivationMethodKey];
