@@ -56,6 +56,7 @@ static NSString *YouPiPWarnVersionKey = @"YouPiPWarnVersionKey";
            // [[NSUserDefaults standardUserDefaults] setBool:enabled forKey:EnabledKey];
            // return YES;
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"EnabledKey"]; 
+            return YES;
         }
         settingItemId:0];
     [sectionItems addObject:enabled];
