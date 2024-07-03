@@ -55,6 +55,5 @@ jobs:
         with:
           tag_name: v1.8.13
           name: v1.8.13
-          files: |
-            main/packages/*.deb
+          files: packages/*.deb
           draft: ${{ env.DRAFT }}
