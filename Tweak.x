@@ -54,10 +54,6 @@ BOOL TweakEnabled() {
     return [[NSUserDefaults standardUserDefaults] boolForKey:EnabledKey];
 }
 BOOL UsePiPButton() {
-     if (![[NSUserDefaults standardUserDefaults] objectForKey:PiPActivationMethodKey]) {
-        // Nếu không có giá trị, đặt giá trị mặc định là YES
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:PiPActivationMethodKey];
-    }
     return [[NSUserDefaults standardUserDefaults] boolForKey:PiPActivationMethodKey];
 }
 
