@@ -31,11 +31,14 @@ static NSString *YouPiPWarnVersionKey = @"YouPiPWarnVersionKey";
 
 %hook YTAppSettingsPresentationData
 
-+ (NSMutableArray <NSNumber *> *)settingsCategoryOrder {
-    NSMutableArray <NSNumber *> *order = %orig;
++ (NSArray <NSNumber *> *)settingsCategoryOrder {
+    NSArray <NSNumber *> *order = %orig;
     NSUInteger insertIndex = [order indexOfObject:@(1)];
-    if (insertIndex != NSNotFound)
-        [order insertObject:@(YouPiPSection) atIndex:insertIndex + 1];
+    if (insertIndex != NSNotFound) {
+        NSMutableArray <NSNumber *> *mutableOrder = order.mutableCopy;
+        [mutableOrder insertObject:@(YouPiPSection) atIndex:insertIndex + 1];
+        order = mutableOrder.copy;
+    }
     return order;
 }
 
@@ -136,9 +139,9 @@ static NSString *YouPiPWarnVersionKey = @"YouPiPWarnVersionKey";
     if ([delegate respondsToSelector:@selector(setSectionItems:forCategory:title:icon:titleDescription:headerHidden:)]) {
         YTIIcon *icon = [%c(YTIIcon) new];
         icon.iconType = YT_PIP;
-        [delegate setSectionItems:sectionItems forCategory:YouPiPSection title:TweakName icon:icon titleDescription:nil headerHidden:NO];
+        [delegate setSectionItems:sectionItems forCategory:YouPiPSection title:LOC(@"SETTINGS_TITLE") icon:icon titleDescription:nil headerHidden:NO];
     } else
-        [delegate setSectionItems:sectionItems forCategory:YouPiPSection title:TweakName titleDescription:nil headerHidden:NO];
+        [delegate setSectionItems:sectionItems forCategory:YouPiPSection title:LOC(@"SETTINGS_TITLE") titleDescription:nil headerHidden:NO];
 }
 
 - (void)updateSectionForCategory:(NSUInteger)category withEntry:(id)entry {
