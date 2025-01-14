@@ -28,8 +28,8 @@
 #import <YouTubeHeader/YTSlimVideoScrollableDetailsActionsView.h>
 #import <YouTubeHeader/YTTouchFeedbackController.h>
 #import <YouTubeHeader/YTWatchViewController.h>
-#import "../YTVideoOverlay/Header.h"
-#import "../YTVideoOverlay/Init.x"
+#import <YTVideoOverlay/Header.h>
+#import <YTVideoOverlay/Init.x>
 
 @interface YTMainAppControlsOverlayView (YouPiP)
 - (void)didPressPiP:(id)arg;
