@@ -35,6 +35,13 @@ jobs:
           ref: main
           path: YouTubeHeader
 
+      - name: Checkout PoomSmart/YTVideoOverlay
+        uses: actions/checkout@main
+        with:
+          repository: PoomSmart/YTVideoOverlay
+          ref: main
+          path: YTVideoOverlay
+
       - name: Build Package 
         id: build_package
         run: |
